@@ -1,82 +1,117 @@
 
 ---
 
-# Movie Recommendation System 🎬
+# 🎬 Movie Recommendation System
 
-## 📌 Overview
-This project builds a **content-based movie recommendation system** using machine learning techniques. It leverages movie metadata (genres, keywords, tagline, cast, and director) to compute similarity scores between movies and recommend titles that are most alike.
+A simple **content-based movie recommendation system** built with Python, Pandas, and Scikit-learn.  
+It suggests movies similar to a user’s favorite by analyzing features such as **genres, keywords, tagline, cast, and director**.
 
-## ⚙️ Features
-- Preprocesses movie dataset (`movies.csv`)
-- Combines multiple metadata fields into a single text feature
-- Converts text into numerical vectors using **TF-IDF Vectorizer**
-- Computes similarity scores using **Cosine Similarity**
-- Provides movie recommendations based on similarity
+---
+
+## 📌 Features
+- Preprocesses movie metadata (`movies.csv`)
+- Combines multiple features into a single text representation
+- Uses **TF-IDF Vectorization** to convert text into numerical vectors
+- Computes **cosine similarity** between movies
+- Suggests the **top 30 most similar movies** to the user’s input
+
+---
 
 ## 🛠️ Tech Stack
-- **Python 3**
-- **Pandas** for data manipulation
-- **Scikit-learn** for TF-IDF and cosine similarity
-- **NumPy** for numerical operations
+- **Python 3.x**
+- **NumPy**
+- **Pandas**
+- **Scikit-learn** (`TfidfVectorizer`, `cosine_similarity`)
+- **Difflib** (for fuzzy matching of movie titles)
 
-## 📂 Dataset
-The dataset used is `movies.csv`, which contains metadata for ~4800 movies. Key columns:
-- `genres`
-- `keywords`
-- `tagline`
-- `cast`
-- `director`
+---
 
-## 🚀 How It Works
+## 📂 Project Structure
+```
+Movie-Recommendation/
+│
+├── movies.csv                     # Dataset containing movie metadata
+├── Movie recommendation system.ipynb   # Jupyter Notebook version
+├── Movie recommendation system.py      # Python script version
+└── README.md                      # Project documentation
+```
+
+---
+
+## ⚙️ Installation
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/Ighayin1/Movie-Recommendation.git
+cd Movie-Recommendation
+pip install -r requirements.txt
+```
+
+> Create a `requirements.txt` file with:
+```text
+numpy
+pandas
+scikit-learn
+```
+
+---
+
+## 🚀 Usage
+### Option 1: Run Jupyter Notebook
+```bash
+jupyter notebook "Movie recommendation system.ipynb"
+```
+
+### Option 2: Run Python Script
+```bash
+python "Movie recommendation system.py"
+```
+
+You’ll be prompted to enter your favorite movie name:
+```
+Enter your favourite movie name: Avatar
+```
+
+Output:
+```
+Movies suggested for you:
+
+1. Avatar
+2. Guardians of the Galaxy
+3. Star Trek
+...
+30. The Matrix
+```
+
+---
+
+## 📊 How It Works
 1. **Data Preprocessing**  
    - Fill missing values with empty strings  
    - Combine selected features into one text column  
 
 2. **Feature Extraction**  
-   - Apply `TfidfVectorizer` to convert text into numerical feature vectors  
+   - Apply TF-IDF Vectorization to convert text into numerical vectors  
 
 3. **Similarity Calculation**  
-   - Use `cosine_similarity` to compute similarity scores between movies  
+   - Compute cosine similarity between all movies  
 
 4. **Recommendation**  
-   - Given a movie title, find the closest matches based on similarity scores  
-
-## ▶️ Usage
-```bash
-# Clone the repo
-git clone https://github.com/yourusername/movie-recommendation.git
-cd movie-recommendation
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the notebook
-jupyter notebook MovieRecommendation.ipynb
-```
-
-Example in code:
-```python
-movie_name = "Avatar"
-list_of_all_titles = movies['title'].tolist()
-
-find_close_match = difflib.get_close_matches(movie_name, list_of_all_titles)[0]
-index_of_movie = movies[movies.title == find_close_match].index[0]
-
-similar_movies = list(enumerate(similarity[index_of_movie]))
-sorted_movies = sorted(similar_movies, key=lambda x: x[1], reverse=True)
-
-for i in sorted_movies[1:6]:
-    print(movies.iloc[i[0]].title)
-```
-
-## 📊 Output
-- Input: `"Avatar"`
-- Output: Top 5 most similar movies based on metadata
-
-## 📖 Future Improvements
-- Add collaborative filtering (user ratings)
-- Integrate deep learning embeddings
-- Build a web app interface with Flask/Django/Streamlit
+   - Find the closest match to the user’s input  
+   - Sort movies by similarity score  
+   - Display the top 30 recommendations  
 
 ---
 
+## 📝 Future Improvements
+- Add collaborative filtering (user-based recommendations)
+- Integrate with a web app (Flask/Django/Streamlit)
+- Use a larger dataset (e.g., TMDB API)
+
+---
+
+## 👨‍💻 Author
+Developed by **Osayi**  
+GitHub: [Ighayin1](https://github.com/Ighayin1)
+
+---
