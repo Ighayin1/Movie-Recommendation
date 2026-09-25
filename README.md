@@ -1,4 +1,3 @@
-Here’s a clear, structured **README draft** for your machine learning movie recommendation project. You can adapt it to your repository:
 
 ---
 
