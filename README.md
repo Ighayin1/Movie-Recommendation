@@ -44,8 +44,8 @@ The dataset used is `movies.csv`, which contains metadata for ~4800 movies. Key 
 ## ▶️ Usage
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/movie-recommender.git
-cd movie-recommender
+git clone https://github.com/yourusername/movie-recommendation.git
+cd movie-recommendation
 
 # Install dependencies
 pip install -r requirements.txt
